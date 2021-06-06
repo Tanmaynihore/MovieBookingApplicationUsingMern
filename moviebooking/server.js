@@ -27,7 +27,7 @@ db.mongoose
 require("./app/routes/artist.routes")(app);
 require("./app/routes/genre.routes")(app);
 require("./app/routes/movie.routes")(app);
-// require("./app/routes/user.routes")(app);
+require("./app/routes/user.routes")(app);
 
 app.listen(3000, (req, res) => {
   console.log("Server Started");
