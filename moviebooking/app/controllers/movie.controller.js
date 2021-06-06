@@ -2,15 +2,17 @@ const db = require("../models");
 const Movie = db.movie;
 
 exports.findAllMovies = (req, res) => {
-  Tutorial.find({})
-    .select("movies")
-    .distinct("movies")
+  const status = req.query.status;
+
+  Movie.find({})
+    .select("movie")
+    .distinct("movie")
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Internal error occured",
+        message: err.message || "Some error occurred while retrieving Movies.",
       });
     });
 };
@@ -18,19 +20,18 @@ exports.findAllMovies = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Tutorial.findById({ _id: id })
+  Movie.findById({ _id: id })
     .then((data) => {
-      if (!data) res.status(404).send({ message: "Movie Not found " + id });
+      if (!data)
+        res.status(404).send({ message: "Not found Movie with id " + id });
       else res.send(data);
     })
     .catch((err) => {
-      res
-        .status(500)
-        .send({ message: "Error retrieving This Movie with id=" + id });
+      res.status(500).send({ message: "Error retrieving Movie with id=" + id });
     });
 };
 
-exports.findShow = (req, res) => {
+exports.findShows = (req, res) => {
   const id = req.params.id;
 
   Movie.findById({ _id: id })

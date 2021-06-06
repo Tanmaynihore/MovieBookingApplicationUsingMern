@@ -2,7 +2,7 @@ const db = require("../models");
 const Artist = db.artist;
 
 exports.findAllArtist = (req, res) => {
-  Tutorial.find({})
+  Artist.find({})
     .select("artist")
     .distinct("artist")
     .then((data) => {

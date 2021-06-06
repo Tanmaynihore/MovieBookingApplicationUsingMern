@@ -2,7 +2,7 @@ const db = require("../models");
 const Genre = db.genre;
 
 exports.findAllGenre = (req, res) => {
-  Tutorial.find({})
+  Genre.find({})
     .select("genre")
     .distinct("genre")
     .then((data) => {

@@ -1,15 +1,15 @@
 module.exports = (app) => {
-  const movie = require("../controllers/movie.controller.js");
+  const movies = require("../controllers/movie.controller.js");
 
-  var router = require("express").Router();
+  const router = require("express").Router();
 
-  router.get("/movie", movie.findAllMovies);
-  router.get("/movie/:published", movie.findAllMovies);
-  router.get("/movie/:released", movie.findAllMovies);
-  router.get("/movie/:id", movie.findOne);
+  router.get("/movies", movies.findAllMovies);
+  router.get("/movies/:published", movies.findAllMovies);
+  router.get("/movies/:released", movies.findAllMovies);
+  router.get("/movies/:id", movies.findOne);
   router.get(
-    "/movie/:id/:title/:genre/:artist/:release_date/:publish_date",
-    movie.findShow
+    "/movies/:id/:title/:genre/:artist/:release_date/:publish_date",
+    movies.findShows
   );
-  app.use("/api",router);
+  app.use("/api", router);
 };

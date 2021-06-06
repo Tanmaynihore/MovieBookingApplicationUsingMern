@@ -12,7 +12,7 @@ module.exports = (mongoose) => {
         isLoggedIn: Boolean,
         token: String,
       },
-      { timestamps: true }
+ 
     )
   );
 

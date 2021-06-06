@@ -1,6 +1,6 @@
 module.exports = (mongoose) => {
   const Movie = mongoose.model(
-    "movie",
+    "movies",
     mongoose.Schema(
       {
         movieid: { type: Number, required: true },
@@ -44,7 +44,7 @@ module.exports = (mongoose) => {
           },
         ],
       },
-      { timestamps: true }
+   
     )
   );
 

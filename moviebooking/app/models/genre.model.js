@@ -5,8 +5,9 @@ module.exports = (mongoose) => {
       {
         genreid: { type: Number, required: true },
         genre: { type: String, required: true },
+        
       },
-      { timestamps: true }
+
     )
   );
 
