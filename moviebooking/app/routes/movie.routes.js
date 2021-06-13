@@ -4,9 +4,9 @@ module.exports = (app) => {
   const router = require("express").Router();
 
   router.get("/movies", movies.findAllMovies);
-  router.get("/movies/:published", movies.findAllMovies);
-  router.get("/movies/:released", movies.findAllMovies);
-  router.get("/movies/:id", movies.findOne);
+  router.get("/movies/:movies?status=PUBLISHED", movies.findAllMovies);
+  router.get("/movies/:movies?status=RELEASED", movies.findAllMovies);
+  router.get("/movies/:movieId", movies.findOne);
   router.get(
     "/movies/:id/:title/:genre/:artist/:release_date/:publish_date",
     movies.findShows
